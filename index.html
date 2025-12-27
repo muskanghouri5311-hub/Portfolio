@@ -3,207 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | High Performance Design</title>
+    <title>Muskan | Information Engineering Tech</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Uncut+Sans:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --accent: #00f2ff;
-            --deep-bg: #0a0a0c;
-            --glass: rgba(18, 18, 21, 0.95); /* High opacity for better visibility */
+            --primary: #d4a5ff; /* Soft Purple */
+            --accent: #00f2ff; /* Cyber Cyan */
+            --bg: #050507;
+            --glass: rgba(15, 15, 20, 0.85);
         }
 
         body {
-            background-color: var(--deep-bg);
-            color: #e2e8f0;
-            font-family: 'Uncut Sans', sans-serif;
-            line-height: 1.6;
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* 3D Scene Container */
-        #hero-canvas {
+        #bg-canvas {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.4; /* Dimmed to keep text readable */
+            top: 0; left: 0; z-index: -1;
+            opacity: 0.5;
         }
 
-        /* Section Styling */
         .section-screen {
             min-height: 100vh;
-            padding: 100px 5%;
+            padding: 80px 10%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Enhanced Readability Cards */
-        .content-card {
+        .mono { font-family: 'Space Mono', monospace; color: var(--accent); font-size: 0.9rem; }
+
+        .glass-panel {
             background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 2px; /* Brutalist sharp edges */
-            box-shadow: 20px 20px 0px rgba(0, 242, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 165, 255, 0.2);
+            padding: 40px;
+            border-radius: 24px;
         }
 
-        .mono { font-family: 'JetBrains Mono', monospace; color: var(--accent); }
-
-        .text-huge {
-            font-size: clamp(3rem, 12vw, 9rem);
-            font-weight: 800;
-            line-height: 0.85;
-            letter-spacing: -0.04em;
+        .text-gradient {
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .project-img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            filter: grayscale(1) contrast(1.2);
-            transition: 0.5s;
+        .uol-tag {
+            background: rgba(212, 165, 255, 0.1);
+            border: 1px solid var(--primary);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
         }
-        .project-img:hover { filter: grayscale(0); }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: var(--accent); }
+        /* Responsive Visibility Fixes */
+        @media (max-width: 768px) {
+            .section-screen { padding: 60px 5%; }
+            .text-huge { font-size: 3.5rem; }
+        }
     </style>
 </head>
 <body>
 
-    <canvas id="hero-canvas"></canvas>
+    <canvas id="bg-canvas"></canvas>
 
     <section class="section-screen">
-        <div class="container-fluid">
-            <p class="mono mb-4 text-xl">// DEVELOPER & ARCHITECT</p>
-            <h1 class="text-huge mb-10">THE<br>UNSEEN<br><span class="text-outline" style="-webkit-text-stroke: 1px #fff; color: transparent;">FUTURE.</span></h1>
-            <div class="flex gap-10">
-                <a href="#work" class="px-8 py-3 bg-white text-black font-bold hover:bg-[#00f2ff] transition">VIEW ARCHIVE</a>
-                <div class="hidden md:block text-gray-500 max-w-sm">Designing interfaces that bridge the gap between human intuition and machine precision.</div>
+        <div class="max-w-4xl">
+            <p class="mono mb-4 animate__animated animate__fadeIn">/ 01 INTRODUCTION</p>
+            <h1 class="text-7xl md:text-9xl font-bold mb-6 text-gradient">MUSKAN.</h1>
+            <div class="flex flex-wrap gap-3 mb-8">
+                <span class="uol-tag">University of Lahore</span>
+                <span class="uol-tag">Information Engineering Technology</span>
+                <span class="uol-tag">5th Semester</span>
             </div>
+            <p class="text-2xl text-gray-400 max-w-2xl">
+                Engineering digital solutions at the intersection of network technology and software innovation. 
+            </p>
         </div>
     </section>
 
-    <section class="section-screen bg-[#000]">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <span class="mono">01. PHILOSOPHY</span>
-                    <h2 class="text-5xl font-bold mt-4 mb-8">Performance is a <span class="text-cyan-400">feature</span>, not an afterthought.</h2>
-                    <p class="text-2xl text-gray-400">I specialize in high-visibility digital products. Whether it's a 3D dashboard or a complex web app, I ensure the content is accessible, fast, and visually striking.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="work" class="section-screen">
-        <div class="container">
+    <section class="section-screen">
+        <div class="glass-panel">
             <div class="row align-items-center">
-                <div class="col-md-7">
-                    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200" class="project-img shadow-2xl" alt="Work 1">
-                </div>
-                <div class="col-md-5 p-10">
-                    <span class="mono">CASE STUDY — 2025</span>
-                    <h3 class="text-4xl font-bold my-4">BLOCKCHAIN ANALYTICS</h3>
-                    <p class="mb-6 opacity-70">A data-dense dashboard for monitoring global transaction flows in real-time. High readability focused.</p>
-                    <button class="border-b-2 border-cyan-400 pb-1 hover:text-cyan-400 transition">EXPLORE PROJECT</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-screen">
-        <div class="container">
-            <div class="row align-items-center flex-row-reverse">
-                <div class="col-md-7">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200" class="project-img" alt="Work 2">
-                </div>
-                <div class="col-md-5 p-10">
-                    <span class="mono">CORE DEV — 2024</span>
-                    <h3 class="text-4xl font-bold my-4">AI INTERFACE SYSTEM</h3>
-                    <p class="mb-6 opacity-70">Custom design language built for LLM interaction, focusing on typography and user flow.</p>
-                    <button class="border-b-2 border-cyan-400 pb-1">EXPLORE PROJECT</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-screen bg-white text-black">
-        <div class="container">
-            <h2 class="text-6xl font-bold mb-20 text-center">CAPABILITIES</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-1 px-1">
-                <div class="p-10 border border-black/10">
-                    <h4 class="font-bold text-xl mb-4 mono">01 / FRONTEND</h4>
-                    <p>React, Next.js, Three.js, GSAP. Creating silky smooth interactions.</p>
-                </div>
-                <div class="p-10 border border-black/10">
-                    <h4 class="font-bold text-xl mb-4 mono">02 / BACKEND</h4>
-                    <p>Node.js, Python, PostgreSQL. Scalable, secure architecture.</p>
-                </div>
-                <div class="p-10 border border-black/10">
-                    <h4 class="font-bold text-xl mb-4 mono">03 / DESIGN</h4>
-                    <p>UI/UX, Motion Design, Branding. Aesthetic meets function.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-screen">
-        <div class="container text-center">
-            <h2 class="text-gray-600 mb-10 mono">TRUSTED BY TECH LEADERS</h2>
-            <div class="flex flex-wrap justify-center gap-20 opacity-40">
-                <span class="text-4xl font-bold italic">NVIDIA</span>
-                <span class="text-4xl font-bold italic">TESLA</span>
-                <span class="text-4xl font-bold italic">OPENAI</span>
-                <span class="text-4xl font-bold italic">APPLE</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-screen bg-[#050505]">
-        <div class="container">
-            <div class="content-card max-w-5xl mx-auto">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=500" class="w-full grayscale brightness-75 rounded" alt="Me">
-                    </div>
-                    <div class="col-md-8 pl-10">
-                        <h2 class="text-4xl font-bold mb-6 italic">Driven by curiosity, powered by code.</h2>
-                        <p class="text-xl mb-6 opacity-80">I’ve spent the last 8 years mastering the art of the digital interface. I believe a website should be an experience, not just a document.</p>
-                        <div class="flex gap-4">
-                            <div class="bg-white/5 p-4 rounded w-full text-center">
-                                <p class="mono text-white">82</p>
-                                <p class="text-xs opacity-50">CLIENTS</p>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded w-full text-center">
-                                <p class="mono text-white">14</p>
-                                <p class="text-xs opacity-50">AWARDS</p>
-                            </div>
+                <div class="col-md-6">
+                    <p class="mono mb-2">// CURRENT STATUS</p>
+                    <h2 class="text-4xl font-bold mb-6">Academic Excellence at UOL</h2>
+                    <p class="text-lg opacity-80 mb-4">
+                        As a 5th-semester Information Engineering Technology student, I am currently diving deep into system architecture, data communications, and advanced software engineering.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="border-l-2 border-primary pl-4">
+                            <h4 class="font-bold">GPA</h4>
+                            <p class="text-sm opacity-60">Consistently maintaining high academic standing.</p>
+                        </div>
+                        <div class="border-l-2 border-accent pl-4">
+                            <h4 class="font-bold">Focus</h4>
+                            <p class="text-sm opacity-60">Infrastructure & Information Systems.</p>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6 mt-5 mt-md-0">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800" class="rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition duration-500" alt="Technology">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-screen bg-white/5">
+        <div class="container">
+            <h2 class="text-5xl font-bold mb-16">Technical Arsenal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 border border-white/10 rounded-xl hover:bg-white/5 transition">
+                    <h3 class="mono mb-4">01. NETWORKING</h3>
+                    <p class="opacity-70">Configuration, routing, switching, and network security protocols.</p>
+                </div>
+                <div class="p-8 border border-white/10 rounded-xl hover:bg-white/5 transition">
+                    <h3 class="mono mb-4">02. SOFTWARE</h3>
+                    <p class="opacity-70">Application development with a focus on Information Technology systems.</p>
+                </div>
+                <div class="p-8 border border-white/10 rounded-xl hover:bg-white/5 transition">
+                    <h3 class="mono mb-4">03. DATA MGMT</h3>
+                    <p class="opacity-70">Database administration, SQL, and data integrity systems.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="section-screen">
-        <div class="container text-center">
-            <h2 class="text-8xl font-bold mb-10 text-outline" style="-webkit-text-stroke: 1px #00f2ff;">GET IN TOUCH</h2>
-            <p class="text-2xl mb-20 text-gray-400">Available for freelance and permanent opportunities.</p>
-            <div class="flex justify-center gap-10 text-xl font-bold">
-                <a href="#" class="hover:text-cyan-400">LINKEDIN</a>
-                <a href="#" class="hover:text-cyan-400">GITHUB</a>
-                <a href="#" class="hover:text-cyan-400">EMAIL</a>
+        <div class="container">
+            <p class="mono text-center mb-4">SELECTED ACADEMIC WORK</p>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="glass-panel h-100">
+                        <h3 class="text-2xl font-bold mb-3">Network Optimization Lab</h3>
+                        <p class="opacity-60 mb-4">Developed a simulated campus network architecture for UOL as part of semester project.</p>
+                        <span class="text-xs font-bold text-primary">CISCO PACKET TRACER / SYSTEM DESIGN</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="glass-panel h-100">
+                        <h3 class="text-2xl font-bold mb-3">Database System Design</h3>
+                        <p class="opacity-60 mb-4">Architected a secure student information portal using modern database principles.</p>
+                        <span class="text-xs font-bold text-accent">SQL / INFORMATION SECURITY</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="p-10 text-center border-t border-white/5 text-gray-600 mono text-xs">
-        &copy; 2025 ALL_RIGHTS_RESERVED // SYSTEM_OFFLINE
+    <section class="section-screen bg-[#0a0a0f]">
+        <div class="text-center max-w-3xl mx-auto">
+            <h2 class="text-5xl font-bold mb-8 italic">"Building the infrastructure of tomorrow."</h2>
+            <p class="text-xl opacity-70">My goal is to bridge the gap between complex engineering hardware and user-centric software applications.</p>
+        </div>
+    </section>
+
+    <section class="section-screen">
+        <div class="container">
+            <h2 class="text-4xl font-bold mb-12">Timeline</h2>
+            <div class="border-l border-white/20 ml-4 pl-8 space-y-12">
+                <div class="relative">
+                    <div class="absolute -left-[41px] w-4 h-4 bg-primary rounded-full"></div>
+                    <h4 class="mono">2023 - PRESENT</h4>
+                    <p class="text-xl font-bold">University of Lahore</p>
+                    <p class="opacity-60">Bachelor of Information Engineering Technology</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[41px] w-4 h-4 bg-accent rounded-full"></div>
+                    <h4 class="mono">2025</h4>
+                    <p class="text-xl font-bold">5th Semester Specialization</p>
+                    <p class="opacity-60">Focusing on Enterprise Network & Systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-screen">
+        <div class="glass-panel max-w-4xl mx-auto w-full">
+            <div class="row items-center">
+                <div class="col-md-6">
+                    <h2 class="text-5xl font-bold mb-4">Let's Connect.</h2>
+                    <p class="opacity-60">Open for internships, research collaborations, and technical discussions.</p>
+                </div>
+                <div class="col-md-6">
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg outline-none focus:border-primary">
+                        <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg outline-none focus:border-primary">
+                        <button class="w-full py-3 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg font-bold">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-white/5 opacity-40">
+        <p class="mono">MUSKAN // UOL STUDENT PORTFOLIO // 2025</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -211,30 +212,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-        // THREE.JS Subtle Background
+        // THREE.JS Ambient Particle Field
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), antialias: true, alpha: true });
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
 
-        const geometry = new THREE.IcosahedronGeometry(15, 1);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00f2ff, wireframe: true, transparent: true, opacity: 0.2 });
-        const sphere = new THREE.Mesh(geometry, material);
-        scene.add(sphere);
-        camera.position.z = 40;
+        const particles = new THREE.BufferGeometry();
+        const count = 2000;
+        const posArray = new Float32Array(count * 3);
+        for(let i=0; i<count*3; i++) { posArray[i] = (Math.random() - 0.5) * 100; }
+        particles.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const material = new THREE.PointsMaterial({ size: 0.05, color: 0xd4a5ff });
+        const mesh = new THREE.Points(particles, material);
+        scene.add(mesh);
+        camera.position.z = 30;
 
         function animate() {
             requestAnimationFrame(animate);
-            sphere.rotation.y += 0.002;
-            sphere.rotation.x += 0.001;
+            mesh.rotation.y += 0.001;
             renderer.render(scene, camera);
         }
         animate();
 
-        // GSAP Scroll Animations
+        // GSAP Initialization
         gsap.registerPlugin(ScrollTrigger);
-        
-        // Simple Fade-in for all sections
         gsap.utils.toArray('section').forEach(section => {
             gsap.from(section, {
                 opacity: 0,
@@ -245,13 +247,6 @@
                     start: "top 80%",
                 }
             });
-        });
-
-        // Resize handler
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
         });
     </script>
 </body>
