@@ -3,182 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architect of the Future | 2025</title>
+    <title>Portfolio | High Performance Design</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncut+Sans:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
     <style>
-        :root { --accent: #00ffaa; --bg: #000000; }
-        body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        h1, h2 { font-family: 'Syncopate', sans-serif; text-transform: uppercase; }
+        :root {
+            --accent: #00f2ff;
+            --deep-bg: #0a0a0c;
+            --glass: rgba(18, 18, 21, 0.95); /* High opacity for better visibility */
+        }
 
-        /* Smooth Scroll Setup */
-        .panel { height: 100vh; width: 100vw; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        
-        /* 3D Canvas */
-        #bg-canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+        body {
+            background-color: var(--deep-bg);
+            color: #e2e8f0;
+            font-family: 'Uncut Sans', sans-serif;
+            line-height: 1.6;
+        }
 
-        /* Glassmorphism */
-        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; }
+        /* 3D Scene Container */
+        #hero-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.4; /* Dimmed to keep text readable */
+        }
 
-        /* Text Effects */
-        .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.5); color: transparent; }
-        .accent-glow { text-shadow: 0 0 20px var(--accent); color: var(--accent); }
+        /* Section Styling */
+        .section-screen {
+            min-height: 100vh;
+            padding: 100px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        /* Bento Grid */
-        .bento-item { transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .bento-item:hover { transform: scale(1.02); border-color: var(--accent); }
+        /* Enhanced Readability Cards */
+        .content-card {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 2px; /* Brutalist sharp edges */
+            box-shadow: 20px 20px 0px rgba(0, 242, 255, 0.05);
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; color: var(--accent); }
+
+        .text-huge {
+            font-size: clamp(3rem, 12vw, 9rem);
+            font-weight: 800;
+            line-height: 0.85;
+            letter-spacing: -0.04em;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: grayscale(1) contrast(1.2);
+            transition: 0.5s;
+        }
+        .project-img:hover { filter: grayscale(0); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); }
     </style>
 </head>
 <body>
 
-    <canvas id="bg-canvas"></canvas>
+    <canvas id="hero-canvas"></canvas>
 
-    <section class="panel pt-20">
-        <div class="text-center">
-            <p class="tracking-[0.5em] text-sm mb-4 animate-pulse">INITIATING CORE_V.2025</p>
-            <h1 class="text-7xl md:text-9xl font-bold mb-0">CREATIVE</h1>
-            <h1 class="text-7xl md:text-9xl font-bold text-outline">ENGINEER</h1>
+    <section class="section-screen">
+        <div class="container-fluid">
+            <p class="mono mb-4 text-xl">// DEVELOPER & ARCHITECT</p>
+            <h1 class="text-huge mb-10">THE<br>UNSEEN<br><span class="text-outline" style="-webkit-text-stroke: 1px #fff; color: transparent;">FUTURE.</span></h1>
+            <div class="flex gap-10">
+                <a href="#work" class="px-8 py-3 bg-white text-black font-bold hover:bg-[#00f2ff] transition">VIEW ARCHIVE</a>
+                <div class="hidden md:block text-gray-500 max-w-sm">Designing interfaces that bridge the gap between human intuition and machine precision.</div>
+            </div>
         </div>
     </section>
 
-    <section class="panel px-10">
-        <div class="max-w-4xl" data-aos="fade-right">
-            <h2 class="text-4xl mb-6">01 / The Vision</h2>
-            <p class="text-3xl leading-relaxed font-light opacity-80">
-                I build digital ecosystems that live at the intersection of <span class="text-white font-bold">Brutalism</span> and <span class="text-white font-bold">Futurism</span>. Every pixel is a calculated move.
-            </p>
-        </div>
-    </section>
-
-    <section class="py-20 px-4">
+    <section class="section-screen bg-[#000]">
         <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-3 gap-4 h-[1200px]">
-                <div class="md:col-span-2 md:row-span-2 glass p-10 bento-item flex flex-col justify-end">
-                    <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&w=800" class="rounded-xl mb-4 grayscale hover:grayscale-0 transition duration-700">
-                    <h3 class="text-2xl font-bold">NEURAL_OS</h3>
-                    <p class="opacity-50">Experimental Operating Interface</p>
-                </div>
-                <div class="glass p-10 bento-item">
-                    <h4 class="accent-glow font-bold">TECH</h4>
-                    <p class="text-sm">THREE.JS / GLSL</p>
-                </div>
-                <div class="glass p-10 bento-item overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=400" class="w-full opacity-30">
-                </div>
-                <div class="md:col-span-2 glass p-10 bento-item flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl">SYNTHETIC_DESIGN</h3>
-                        <p class="text-sm opacity-50">Visual Identity</p>
-                    </div>
-                    <div class="h-20 w-20 border border-white/20 rounded-full flex items-center justify-center">→</div>
-                </div>
-                <div class="glass p-10 bento-item md:col-span-1">
-                    <h3 class="text-5xl font-bold italic">85+</h3>
-                    <p>Projects Completed</p>
+            <div class="row">
+                <div class="col-md-8">
+                    <span class="mono">01. PHILOSOPHY</span>
+                    <h2 class="text-5xl font-bold mt-4 mb-8">Performance is a <span class="text-cyan-400">feature</span>, not an afterthought.</h2>
+                    <p class="text-2xl text-gray-400">I specialize in high-visibility digital products. Whether it's a 3D dashboard or a complex web app, I ensure the content is accessible, fast, and visually striking.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="panel overflow-hidden border-y border-white/10">
-        <div class="whitespace-nowrap flex py-10 opacity-20 hover:opacity-100 transition duration-500">
-            <h2 class="text-9xl mx-10">JAVA_SCRIPT</h2>
-            <h2 class="text-9xl mx-10 text-outline">REACT_NATIVE</h2>
-            <h2 class="text-9xl mx-10">THREE_JS</h2>
-            <h2 class="text-9xl mx-10 text-outline">PYTHON</h2>
-            <h2 class="text-9xl mx-10">DOCKER</h2>
-        </div>
-    </section>
-
-    <section class="panel px-10">
-        <div class="container grid md:grid-cols-2 gap-20 items-center">
-            <div class="relative">
-                <div class="absolute -inset-4 bg-emerald-500/20 blur-3xl rounded-full"></div>
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500" class="relative z-10 rounded-3xl grayscale">
-            </div>
-            <div>
-                <h2 class="text-4xl mb-6">System Architecture</h2>
-                <p class="text-xl opacity-60 mb-8">With over a decade of experience in the digital space, I specialize in crafting high-performance backend systems coupled with cutting-edge frontend visuals.</p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 border border-white/10 rounded-lg">
-                        <p class="text-xs opacity-50">LOCATION</p>
-                        <p>51.5074° N, 0.1278° W</p>
-                    </div>
-                    <div class="p-4 border border-white/10 rounded-lg">
-                        <p class="text-xs opacity-50">STATUS</p>
-                        <p>Open for Collab</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="panel">
+    <section id="work" class="section-screen">
         <div class="container">
-            <div class="glass p-12 max-w-2xl mx-auto">
-                <div class="flex gap-2 mb-6">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200" class="project-img shadow-2xl" alt="Work 1">
                 </div>
-                <h2 class="text-2xl mb-6">Execute Connection...</h2>
-                <form>
-                    <input type="text" placeholder="USER_NAME" class="w-full bg-transparent border-b border-white/20 py-4 mb-6 outline-none focus:border-accent transition">
-                    <input type="email" placeholder="USER_EMAIL" class="w-full bg-transparent border-b border-white/20 py-4 mb-10 outline-none focus:border-accent transition">
-                    <button class="px-10 py-4 border border-accent text-accent hover:bg-accent hover:text-black transition font-bold uppercase tracking-widest">Transmit Message</button>
-                </form>
+                <div class="col-md-5 p-10">
+                    <span class="mono">CASE STUDY — 2025</span>
+                    <h3 class="text-4xl font-bold my-4">BLOCKCHAIN ANALYTICS</h3>
+                    <p class="mb-6 opacity-70">A data-dense dashboard for monitoring global transaction flows in real-time. High readability focused.</p>
+                    <button class="border-b-2 border-cyan-400 pb-1 hover:text-cyan-400 transition">EXPLORE PROJECT</button>
+                </div>
             </div>
         </div>
     </section>
+
+    <section class="section-screen">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-md-7">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200" class="project-img" alt="Work 2">
+                </div>
+                <div class="col-md-5 p-10">
+                    <span class="mono">CORE DEV — 2024</span>
+                    <h3 class="text-4xl font-bold my-4">AI INTERFACE SYSTEM</h3>
+                    <p class="mb-6 opacity-70">Custom design language built for LLM interaction, focusing on typography and user flow.</p>
+                    <button class="border-b-2 border-cyan-400 pb-1">EXPLORE PROJECT</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-screen bg-white text-black">
+        <div class="container">
+            <h2 class="text-6xl font-bold mb-20 text-center">CAPABILITIES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-1 px-1">
+                <div class="p-10 border border-black/10">
+                    <h4 class="font-bold text-xl mb-4 mono">01 / FRONTEND</h4>
+                    <p>React, Next.js, Three.js, GSAP. Creating silky smooth interactions.</p>
+                </div>
+                <div class="p-10 border border-black/10">
+                    <h4 class="font-bold text-xl mb-4 mono">02 / BACKEND</h4>
+                    <p>Node.js, Python, PostgreSQL. Scalable, secure architecture.</p>
+                </div>
+                <div class="p-10 border border-black/10">
+                    <h4 class="font-bold text-xl mb-4 mono">03 / DESIGN</h4>
+                    <p>UI/UX, Motion Design, Branding. Aesthetic meets function.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-screen">
+        <div class="container text-center">
+            <h2 class="text-gray-600 mb-10 mono">TRUSTED BY TECH LEADERS</h2>
+            <div class="flex flex-wrap justify-center gap-20 opacity-40">
+                <span class="text-4xl font-bold italic">NVIDIA</span>
+                <span class="text-4xl font-bold italic">TESLA</span>
+                <span class="text-4xl font-bold italic">OPENAI</span>
+                <span class="text-4xl font-bold italic">APPLE</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-screen bg-[#050505]">
+        <div class="container">
+            <div class="content-card max-w-5xl mx-auto">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=500" class="w-full grayscale brightness-75 rounded" alt="Me">
+                    </div>
+                    <div class="col-md-8 pl-10">
+                        <h2 class="text-4xl font-bold mb-6 italic">Driven by curiosity, powered by code.</h2>
+                        <p class="text-xl mb-6 opacity-80">I’ve spent the last 8 years mastering the art of the digital interface. I believe a website should be an experience, not just a document.</p>
+                        <div class="flex gap-4">
+                            <div class="bg-white/5 p-4 rounded w-full text-center">
+                                <p class="mono text-white">82</p>
+                                <p class="text-xs opacity-50">CLIENTS</p>
+                            </div>
+                            <div class="bg-white/5 p-4 rounded w-full text-center">
+                                <p class="mono text-white">14</p>
+                                <p class="text-xs opacity-50">AWARDS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-screen">
+        <div class="container text-center">
+            <h2 class="text-8xl font-bold mb-10 text-outline" style="-webkit-text-stroke: 1px #00f2ff;">GET IN TOUCH</h2>
+            <p class="text-2xl mb-20 text-gray-400">Available for freelance and permanent opportunities.</p>
+            <div class="flex justify-center gap-10 text-xl font-bold">
+                <a href="#" class="hover:text-cyan-400">LINKEDIN</a>
+                <a href="#" class="hover:text-cyan-400">GITHUB</a>
+                <a href="#" class="hover:text-cyan-400">EMAIL</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="p-10 text-center border-t border-white/5 text-gray-600 mono text-xs">
+        &copy; 2025 ALL_RIGHTS_RESERVED // SYSTEM_OFFLINE
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-        // 1. Three.js Background (Abstract Fluid)
+        // THREE.JS Subtle Background
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), antialias: true, alpha: true });
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
 
-        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ffaa, wireframe: true });
-        const torusKnot = new THREE.Mesh(geometry, material);
-        scene.add(torusKnot);
-        camera.position.z = 30;
+        const geometry = new THREE.IcosahedronGeometry(15, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00f2ff, wireframe: true, transparent: true, opacity: 0.2 });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+        camera.position.z = 40;
 
         function animate() {
             requestAnimationFrame(animate);
-            torusKnot.rotation.x += 0.005;
-            torusKnot.rotation.y += 0.01;
+            sphere.rotation.y += 0.002;
+            sphere.rotation.x += 0.001;
             renderer.render(scene, camera);
         }
         animate();
 
-        // 2. GSAP Animations
+        // GSAP Scroll Animations
         gsap.registerPlugin(ScrollTrigger);
-
-        // Screen 1 Fade Out
-        gsap.to(".panel h1", {
-            scrollTrigger: {
-                trigger: ".panel",
-                start: "top top",
-                scrub: true
-            },
-            y: -200,
-            opacity: 0
+        
+        // Simple Fade-in for all sections
+        gsap.utils.toArray('section').forEach(section => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                }
+            });
         });
 
-        // Skill Marquee Animation
-        gsap.to(".whitespace-nowrap", {
-            xPercent: -50,
-            repeat: -1,
-            duration: 10,
-            ease: "none"
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
         });
     </script>
 </body>
